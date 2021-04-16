@@ -329,4 +329,14 @@ VariableName(Datatype): Datatype
 شرحت نبذة عن اهم الاشياء في الـ `UML Class Diagram `  
 وفي الدرس القادم سندخل في الـ `Design Pattern` 
 
+# `مصادر مفيدة`
+
+<div dir = ltr>
+
+https://www.uml-diagrams.org/class-diagrams-overview.html  
+
+https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/
+
+</div>
+
 </div> 
