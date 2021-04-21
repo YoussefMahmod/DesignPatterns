@@ -230,7 +230,7 @@ VariableName(Datatype): Datatype
 لن اشرح كل العلاقات لانها كثيرة ومتنوعة جدا لذا سأشرح بعضها والاهم منها  
 
 
-### - `Inheritance/Generalization Arrow`  
+- ### `Inheritance/Generalization Arrow`  
   
 واول سهم لدينا هنا هو سهم الوراثة `Inheritance Arrow` ويطلق عليه ايضًا بـ `Generalization Arrow`
 
@@ -258,7 +258,7 @@ VariableName(Datatype): Datatype
 
 هكذا نخبرها ان `فئة` `WildAnimal` ترث `فئة` `Animal`
 
-### - `Dependency` 
+- ### `Dependency` 
 
 العلاقة التانية هي الـ `Dependency` وهي الاعتمادية  
 بمعنى ان قلنا ان `فئة أ` تعتمد على `فئة ب` فهذا يعني ان `فئة أ لن تتواجد الى بوجود `فئة` ب`
@@ -278,8 +278,28 @@ VariableName(Datatype): Datatype
 فإذا اختفى الـ `Animal` اصبح الـ `WildAnimal` ليس له وجود  
 لانه وجوده والدوال التى به تعتمد على تواجد الـ `Animal`  
 
+- ### `Realization`
 
-### - `Association` 
+وتسمى ايضًا بـ `Implementation` وهي شبيه بالـ `Dependency`  
+وسهمها يبدو هكذا  
+
+![](Image/3-1.png)  
+
+وهو العلاقة اللإدراكية اي انك تدركها بنفسك  
+قد لا تكون هناك علاقة مباشرة بينا `الفئة أ` و`الفئة ب`  
+لكن مع ذلك هناك علاقة بينهم بشكل غير مباشر  
+
+![](Image/3-2.png)
+
+فعلي سبيل المثال هنا لدينا فئتين الاولى فئة الـ `Book` والثانية فئة الـ `Person`  
+ستلاحظ وجود دالة  `read(Book)` عند الـ `Person`  وهي تستقبل كائن من النوع `Book` كما ترى  
+
+لا يوجد علاقة مباشرة بين الشخص والكتاب لكن الشخص لديه دالة توضح على سبيل المثال كم كتاب قراءه هذا الشخص  
+لذا على فئة الـ `Person` ان تستخدم فئة الـ `Book` وهذا هو الـ `Realization`  
+يستخدم بكثرة ويبما دائما في الـ `interface` ايضا مثل الـ `Dependency`
+
+
+- ### `Association` 
 
 هو اشبه بعلاقة توصيفية اوتعريفية لنوع العلاقة بين `الفئات`  
 
@@ -317,7 +337,7 @@ VariableName(Datatype): Datatype
 - `n..m` يمكننا ان نحدد مجال للعلاقة، فمثلا البيت يجب ان يحتوي على `3` غرف بحد ادنى او `5` غرف بحد 
 اقصى`2..5`
 
-### - `Aggregation` 
+- ### `Aggregation` 
 
 السهم خاصته يبدو هكذا  
 ![](Image/8.png)
@@ -341,7 +361,7 @@ VariableName(Datatype): Datatype
 
 
 
-### - `Composition`  
+- ### `Composition`  
 
 السهم خاصته يبدو هكذا  
 
@@ -375,6 +395,8 @@ https://www.uml-diagrams.org/class-diagrams-overview.html
 https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/
 
 https://www.gofpatterns.com/design-patterns/module1/intro-design-patterns.php
+
+https://en.wikipedia.org/wiki/Class_diagram
 
 </div>
 
