@@ -8,12 +8,13 @@
 
 </div>
 
-بعد ما اخذنا نبذة عن ما هو الـ `UML Class Diagram` والـ `Design Patterns` سنبدأ مع اول `Design Pattern` معنا وهو الـ `Singleton`
-
-قبل ذلك، نحن سنستخدم لغة الـ `Java` في التطبيق العملي  
-لذلك سنتعرف على بعض المفاهيم المهمة التى توجد في الـ `Java`
+بعد ما اخذنا نبذة عن ما هو الـ `UML Class Diagram` والـ `Design Patterns` سنبدأ مع اول `Design Pattern` معنا وهو الـ `Singleton`  
+وهو يعد من الـ `Creational Design Patterns` اي انه يهتم بطريقة وكيفية انشاءنا للكائنات (`Objects`) 
 
 # `Java`
+
+نحن سنستخدم لغة الـ `Java` في التطبيق العملي  
+لذلك سنتعرف على بعض المفاهيم المهمة التى توجد في الـ `Java`
 
 اولا لنرى البيئة الخاصة بالـ `Java` لكتابة الاوامر  
 
@@ -29,17 +30,17 @@ public class Main {
 
 </div>
 
-لغة الـ `Java` لغة `OOP` بطبعها كل تعاملك معها سيكون عن طريق كلاسات ودوال وامور متعلقة بهما  
-لدينا هنا كلاس اساسي يدعى `Main` وهو اسم المشروع (`اسم الكلاس الرئيسي ليس ثابتا يختلف بحسب اسم المشروع`)  
-ستلاحظ اننا كتبنا قبل الكلاس `public` وهذ معناه انه يمكن استدعائه خارجيا من كلاس اخر  
-لو كتبنا `private` ولا يمكننا ان نستدعيه من كلاس خارجي اخر  
+لغة الـ `Java` لغة `OOP` بطبعها كل تعاملك معها سيكون عن طريق `فئات` (`classes`) ودوال وامور متعلقة بهما  
+لدينا هنا `فئة` اساسية تدعى `Main` وهو اسم المشروع (`اسم الفئة الرئيسية للمشلروع ليس ثابتا يختلف بحسب اسم المشروع`)  
+ستلاحظ اننا كتبنا قبل `الفئة` كلمة `public` وهذ معناه انه يمكن استدعائها خارجيا من `فئة` اخرى  
+لو كتبنا `private` ولا يمكننا ان نستدعيها من فئة خارجية اخرى  
 
-داخل الكلاس الرئيسي `Main` لدينا الدالة الرئيسية الذي يبدأ البرنامج التنفيذ منها وهي الـ `main`  
+داخل `الفئة`  الرئيسية `Main` لدينا الدالة الرئيسية الذي يبدأ البرنامج التنفيذ منها وهي الـ `main`  
 وهي ايضا `public` وايضا هي `static`  
 
-كما قلنا الـ `static` يجعل المتغير او الدالة يتم استدعائها عن طريق `اسم الكلاس` وليس عن طريق `object` من هذا الكلاس   
+كما قلنا الـ `static` يجعل المتغير او الدالة يتم استدعائها عن طريق `اسم الفئة` وليس عن طريق `كائن` ( `كائن` ) من هذه `الفئة`    
 
-فمعنى اننا وضعنا للدالة  `static` اننا يمكن استدعائها دون الحاجة لعمل `object` من الكلاس `Main`  
+فمعنى اننا وضعنا للدالة  `static` اننا يمكن استدعائها دون الحاجة لعمل اي `كائن` من `الفئة`  `Main`  
 
 # `مفهوم الـ Static`
 
@@ -52,13 +53,13 @@ public class Main {
     public String name = "Ahmed";
      
     public static void main(String[] args) {
-        System.out.print(name); // Error
+        System.out.print(name); // خطأ
     }
 }
 ```
 </div>
 
-هنا لدينا متغير يدعى `name` داخل كلاس الـ `Main`  
+هنا لدينا متغير يدعى `name` داخل `فئة`  الـ `Main`  
 اذا حاولنا الوصول لهذا المتغير من داخل دالة الـ `main` سيعطينا خطأ   
 يقول  
 
@@ -69,8 +70,8 @@ non-static variable name cannot be referenced from a static context
 ```
 </div>
 
-بمعنى ان دالة `main` هي `static` بتالي لا يمكنك ان تستدعي اي متغير `non-static` داخلها بطريقة مباشرة  
-والسبب يرجع لان متغير الـ `name` داخل كلاس الـ `Main` فان اردت الوصول له يجب ان تنشيء `object` من هذا الكلاس  
+ بمعنى ان دالة الـ `main` هي `static` بالتالي لا يمكنك ان تستدعي اي متغير `non-static` داخلها بطريقة مباشرة  
+والسبب يرجع لان متغير الـ `name` داخل `فئة`  الـ `Main` فان اردت الوصول له يجب ان تنشيء `كائن` من `فئة` الـ` Main`   
 
 <div dir = ltr>
 
@@ -79,18 +80,21 @@ public class Main {
      public String name = "Ahmed";
     
     public static void main(String[] args) {
-        Main obj = new Main();
-        System.out.print(obj.name); // Correct, we access name fron object of Main Class
+        Main obj = new Main(); //Main أنشأنا كائن من الفئة الرئيسية
+
+        System.out.print(obj.name);
+        // هكذا لن يحدث اي خطأ
+        //Main عن طريق عمل كائن من الفئة الرئيسية name لاننا وصلنا للمتغير 
     }
 }
 ```
 </div>
 
-هنا لم يحدث اي خطأ لاننا انشأنا `object` من كلاس `Main` واستدعينا المتغير `name` عن طريقه  
+هنا لم يحدث اي خطأ لاننا انشأنا `كائن` من `فئة` الـ `Main` واستدعينا المتغير `name` عن طريقه  
 
 الان ماذا سيحدث اذا جعلنا المتغير `name` يكون `static` ؟  
-هكذا وعلى حسب مفهوم الـ `static` سيمكننا من استدعاء المتغير دون إنشاء `object` من الكلاس  
-وسنستدعيه عن طريق اسم الكلاس فقط  
+هكذا وعلى حسب مفهوم الـ `static` سيمكننا من استدعاء المتغير دون إنشاء اي  `كائن`  من `الفئة`   
+وسنستدعيه عن طريق اسم `الفئة`  فقط  
 
 <div dir = ltr>
 
@@ -99,16 +103,19 @@ public class Main {
      public static String name = "Ahmed";
     
     public static void main(String[] args) {
-        System.out.print(Main.name); // Correct, because the "name" variable is a static
+        System.out.print(Main.name); 
+        // لم يحدث اي خطأ
+        //فنستطيع الوصول له عن طريق اسم الفئة الرئيسية فقط static لان المتغير نوعه
+        //Main دون انشاء كائن من الفئة الرئيسية
     }
 }
 ```
 </div>
 
 بهذا الشكل جعنا المتغير `name` يكون `static` ثم استديناه عن طريق كتابة `Main.name`  
-استدعيناه عن طريق اسم الكلاس وليس عن طريق `object`  
+استدعيناه عن طريق اسم `الفئة`  وليس عن طريق `كائن` منه كما لاحظت  
 
-هنا لدينا شيء جميل بما اننا داخل كلاس الـ `Main` بالفعل فلا حاجة لكتابة اسم الكلاس لاستدعاء الـ `static`  
+هنا لدينا شيء جميل بما اننا داخل `فئة`  الـ `Main` بالفعل فلا حاجة لكتابة اسم `الفئة`  لاستدعاء الـ `static`  
 
 <div dir = ltr>
 
@@ -117,32 +124,34 @@ public class Main {
      public static String name = "Ahmed";
     
     public static void main(String[] args) {
-        System.out.print(name); // Correct, because we are inside the Main Class
+        System.out.print(name);
+        // بداخله بالفعل Main لا حاجة لكتابة اسم الفئة
+        // لكن إن كنا خارجه فيجب كتابة اسم الفئة
     }
 }
 ```
 </div>
 
-فطالما نحن داخل الكلاس فلا حاجة لتكرار اسمه  
-لكن ان كنا خارج الكلاس فيجب كتابة اسمه ثم المتغير الـ `static`  
+فطالما نحن داخل `الفئة`  فلا حاجة لتكرار اسمه  
+لكن ان كنا خارج `الفئة`  فيجب كتابة اسمه ثم المتغير الـ `static`  
 
 # `Singleton Pattern`
 
-احيانًا يوجد بعض الاشياء في مشروعك لا تريد ان يكون لديها اكثر من `object`  
+احيانًا يوجد بعض الاشياء في مشروعك لا تريد ان يكون لديها اكثر من `كائن`  
 
 امثلة افتراضية لهذه الحالة  
-نريد `object` واحد لقاعدة البيانات `Database`، نحن لدينا قاعدة بيانات واحدة فقط ولا يمكن ان يكون هناك اكثر  
-او نريد `object` واحد لكلاس الـ `Manager`، لا يمكن ان يكون لدينا مديران في الشركة  
-او نريد `object` واحد لكلاس `Login`, `register`  
-اي شيء تفكر فيه تريده ان يكون له `object` وحيد لا غير  
+- نريد  `كائن`  واحد لقاعدة البيانات `Database`، نحن لدينا قاعدة بيانات واحدة فقط ولا يمكن ان يكون هناك اكثر  
+- نريد  `كائن`  واحد لكلاس الـ `Manager`، لا يمكن ان يكون لدينا مديران في الشركة  
+- نريد  `كائن`  واحد لكلاس `Login`, `register`  
+اي شيء تفكر فيه تريده ان يكون له  `كائن`  وحيد لا غير  
 
-فهذه بحد ذاتها مشكلة تريد حلها، تريد ان تصمم الكلاس خاصتك بحيث يجب ان يكون لديه `object` واحد فقط  
+فهذه بحد ذاتها مشكلة تريد حلها، تريد ان تصمم `الفئة`  خاصتك بحيث يجب ان يكون لديه  `كائن`  واحد فقط  
 
 هنا ظهر الحل وهو الـ `Singleton Pattern` ليحل لنا هذه المشكلة  
-وهو عبارة عن مجموعة من القواعد التى تتبعها وتضيفها للكلاس خاصتك   
-لكي يجعل الكلاس يسمح بإنشاء `object` واحد فقط  
+وهو عبارة عن مجموعة من القواعد التى تتبعها وتضيفها `للفئة` خاصتك   
+لكي يجعل `الفئة`  يسمح بإنشاء  `كائن`  واحد فقط  
 
-دعونا ننشيء كلاس يدعى `Manager`
+دعونا ننشيء `فئة`  يدعى `Manager`
 
 <div dir = ltr align = "center">
 
@@ -174,11 +183,11 @@ public class Manager{
 ```  
 </div>
 
-لدينا كلاس الـ `Manager` بالمتغيرات والدوال التى كانت موضحة في جدول الـ `UML`   
+لدينا `فئة`  الـ `Manager` بالمتغيرات والدوال التى كانت موضحة في جدول الـ `UML`   
 
-هذا الكلاس كتبناه في ملف خارجي لكنه ضمن الـ `Package`  
-في الجافا سنتعامل مع البرنامج او المشروع كمجموعة كلاسات تكون في `Package` موحد يضمها  
-كل كلاس نكتبه في ملف منفصل   
+هذه `الفئة`  كتبناها في ملف خارجي لكنها ضمن الـ `Package` (`حزمة`)  
+في الجافا سنتعامل مع البرنامج او المشروع كمجموعة `فئات` تكون في `Package` موحد يضمها  
+كل `فئة`  نكتبها في ملف منفصل   
 
 فمعنى ان المشروع خاصتنا ملفاته تبدوا كهذا  
 
@@ -193,22 +202,22 @@ Package
 ```  
 </div>
 
-فكلا الكلاسين الـ `Main` والـ `Manager` متواجدين في نفس الـ `Package`  
-فهكذا كلايهما يريان بعضهما البعض  
+فكلا `الفئتين` الـ `Main` والـ `Manager` متواجدتين في نفس الـ `Package`  
+فهكذا كلتيهما تريان بعضهما البعض  
 
 
 # `قواعد الـ Singleton`  
 
-الان لدينا كلاس الـ `Manager` ونريد ان نجعله يمتلك `object` واحد فقط  
-ولا نريده ان نسمع بإنشاء اكثر من `object` واحد  
+الان لدينا `فئة`  الـ `Manager` ونريد ان نجعلها نمتلك  `كائن`  واحد فقط  
+ولا نريد ان نسمح لها بإنشاء اكثر من  `كائن`  واحد  
 
 لذا سنحاول ان نطبق عليه قواعد الـ `Singleton`
 
 وهي كالأتي  
 
-- إنشاء `object` من نفس نوع الكلاس يكون `private` و`static`
+- إنشاء  `كائن`  من نفس نوع `الفئة`  يكون `private` و`static`
 - إنشاء `Constructor` وجعله `private`
-- إنشاء دالة تكون `public` تقوم دائما بارجاع الـ `object` الذي انشأناه اول مرة داخل الكلاس 
+- إنشاء دالة تكون `public` تقوم دائما بارجاع نفس `الكائن`  الذي انشأناه اول مرة داخل `الفئة`  
 
 
 <div dir = ltr align = "center">
@@ -220,7 +229,7 @@ Package
 
 </div>
 
-هذا كلاس افتراضي يدعى `Singleton` (`مجرد اسم لا اكثر`) طبقناه فيه قواعد الـ `Singleton Pattern`  
+هذه `فئة`  افتراضية تدعى `Singleton` (`مجرد اسم لا اكثر`) طبقنا فيها قواعد الـ `Singleton Pattern`  
 
 
 <div dir = ltr>
@@ -228,14 +237,14 @@ Package
 > \- <u> singleton </u>: Singleton
 </div>
 
-هنا انشأنا `object` يدعى `singleton` من نوع الكلاس `Singleton` وجعلناه `static` وهو `private` بسبب اشارة الـ `-`  
+هنا انشأنا  `كائن`  يدعى `singleton` من نوع `الفئة`  `Singleton` وجعلناه `static` وهو `private` بسبب اشارة الـ `-`  
 
 <div dir = ltr>
 
 > \- Singleton()
 </div>
 
-هنا جعلنا الـ `Constructor` يكون `private` لنمنع انشاء اي `object` من الكلاس بشكل دائم  
+هنا جعلنا الـ `Constructor` يكون `private` لنمنع انشاء اي  `كائن`  من `الفئة`  بشكل دائم  
 وان كان لديك اكثر من `constructor` يجب ان تجعلهم `private`  
 
 <div dir = ltr>
@@ -243,9 +252,9 @@ Package
 > \+ <u> getObject() </u> : Singleton
 </div>
 
-هنا ننشيء الدالة التى سترجع لنا نفس الـ `object` الـ `Singleton` في كل مرة نستدعيها  
+هنا ننشيء الدالة التى سترجع لنا في كل مرة نستدعيها نفس `الكائن` الذي انشأناه  
 
-دعونا نرى مثال عملي على كلاس الـ `Manager` خاصتنا  
+دعونا نرى مثال عملي على `فئة`  الـ `Manager` خاصتنا  
 
 
 <div dir = ltr align = "center">
@@ -257,11 +266,11 @@ Package
 
 </div>
 
-لقد اضفنا `object` يدعى `manager` من نفس نوع الكلاس `Manager` وهو `private` و`static`  
-ثم جعلنا الـ `constructor` يكون `private` هكذا لا يمكننا انشاء اي object من الـ `Manager`  
-ثم اخيرا لدينا دالة هي من سترجع لنا كل مرة `object` الذي انشأه اول مرة وهو الـ `manager`  
+لقد اضفنا  `كائن`  يدعى `manager` من نفس نوع `الفئة`  `Manager` وهو `private` و`static`  
+ثم جعلنا الـ `constructor` يكون `private` هكذا لا يمكننا انشاء اي `كائن` من الـ `Manager`  
+ثم اخيرا لدينا دالة هي من سترجع لنا في كل مرة  `الكائن`  الذي انشأه اول مرة وهو الـ `manager`  
 
-دعونا نرى ترجمة كل ما قلناه لكلاس الـ `Manager` في الـ `Java`
+دعونا نرى ترجمة كل ما قلناه `للفئة` الـ `Manager` في الـ `Java`
 
 <div dir = ltr>
 
@@ -271,19 +280,19 @@ public class Manager{
     private int id;
     private String name;
 
-    // The Only one Manager Object
+    // الكائن الوحيد الخاص بالفئة
     private static Manager manager = null;
         
     // Private Methods
     // Constructor
-    private Manager(){}
+    private Manager(){} // جعلناه خاص لكي لا ينشيء اي كائن اخر من الفئة 
         
     // Public Methods
     public static Manager getManager(){
-        if(manager == null) // chicking if there is no manager
-            manager = new Manager(); // create the manager
+        if(manager == null) // التأكد اذا كان الكائن خاصتنا تم انشاءه من قبل ام لا
+            manager = new Manager(); // انشاء الكائن في حال عدم وجوده
 
-        return manager; // return that only Manager Object we have
+        return manager; // ارجاع الكائن الوحيد الذي لدينا
     }
     public void setName(String name){
         this.name = name;
@@ -295,10 +304,10 @@ public class Manager{
 ```
 </div>
 
-هكذا اصبح كلاس الـ `Manager` يمتلك `object` واحد فقط وهو `manager` الذي جعلناه `private` و`static`  
-وجعلنا الـ `constructer` يكون `private` ليمنع انشاء اي `object` اخر من كلاس الـ `Manager`  
-ثم لدينا اهم دالة هنا وهي `getManager` وهي `static` لكي يستطيع المستخدم استدعائها دون الحاجة لعمل `object` من الكلاس  
-(`وبالمناسبة لن يستطيع عمل object على اي حال`)  
+هكذا اصبح `فئة`  الـ `Manager` تمتلك  `كائن`  واحد فقط وهو `manager` الذي جعلناه `private` و`static`  
+وجعلنا الـ `constructer` يكون `private` ليمنع انشاء اي  `كائن`  اخر من `فئة`  الـ `Manager`  
+ثم لدينا اهم دالة هنا وهي `getManager` وهي `static` لكي يستطيع المستخدم استدعائها دون الحاجة لعمل  `كائن`  من `الفئة`   
+(`وبالمناسبة لن يستطيع عمل اي كائن على اي حال`)  
 
 وان حاول فعل هذا
 
@@ -308,13 +317,13 @@ public class Manager{
 public class Main {
     
     public static void main(String[] args) {
-        Manager obj = new Manager(); // Error, because the constructor is private
+        Manager obj = new Manager(); //خاص وليس عام constructor خطأ، لان الـ 
     }
 }
 ```
 </div>
 
-كيف اذًا نحصل على الـ `object` لنتعامل مع الكلاس خاصتنا والدوال التى به ؟  
+كيف اذًا نحصل على `الكائن`  لنتعامل مع `الفئة`  خاصتنا والدوال التى بها ؟  
 هنا يأتي دور الدالة المهمة `getManager`  
 
 دعونا نناقش هذه الدالة قليلا  
@@ -325,17 +334,17 @@ public class Main {
 private static Manager manager = null;
 
 public static Manager getManager(){
-    if(manager == null) // chicking if there is no manager
-        manager = new Manager(); // create the manager
+    if(manager == null) // التأكد اذا كان الكائن خاصتنا تم انشاءه من قبل ام لا
+        manager = new Manager(); // انشاء الكائن في حال عدم وجوده
 
-    return manager; // return that only Manager Object we have
+    return manager; // ارجاع الكائن الوحيد الذي لدينا
 }
 ```
 </div>
 
-هي حلقة الوصل بينك وبين الكلاس، هي من تعطيك نفس الـ `object` الوحيد الذي انشأناه  
-وهي دالة بسيطة جدا، تقول ان كات الـ `object` الذي انشأناه يساوي `null` معنى هذا انها المرة الاولى التي يتم استدعاء الدالة  
-فأنشيء له `object` جديد، ثم ارجع له الـ `object`، ففي كل مرة يستدعي الدالة ستعطيه نفس الـ `object`  
+هي حلقة الوصل بينك وبين `الفئة` ، هي من تعطيك نفس `الكائن`  الوحيد الذي انشأناه  
+وهي دالة بسيطة جدا، تقول ان كان `الكائن`  الذي انشأناه يساوي `null` معنى هذا انها المرة الاولى التي يتم استدعاء الدالة  
+فأنشيء له  `كائن`  جديد، ثم ارجع له `الكائن` ، ثم في كل مرة سيستدعي الدالة ستعطيه نفس `الكائن`   
 
 
 <div dir = ltr>
@@ -344,31 +353,32 @@ public static Manager getManager(){
 public class Main {
     
     public static void main(String[] args) {
-        Manager obj = Manager.getManager(); // Correct, we use the name of Manager Class to get getManager()
-    
+        Manager obj = Manager.getManager(); // هكذا نحضر الكائن الوحيد الذي نمتلكه عن طريق الدالة
+            
         obj.setName("Ahmed");
-        System.out.println(obj.getName()); // Output: Ahmed
+        System.out.println(obj.getName()); //Ahmed :الطباعة ستكون
     }
 }
 ```
 </div>
 
-لاحظ اننا استخدمنا اسم الكلاس `Manager` لاستدعاء دالة الـ `getManager` لانها `static`
+لاحظ اننا استخدمنا اسم `الفئة`  `Manager` لاستدعاء دالة الـ `getManager` لانها `static`
 
 يمكننا ان نختصر الدالة في سطر واحد هكذا  
 
 <div dir = ltr>
 
 ```java
+// ننشيء الكائن في لحظة تعريفنا له
 private static final Manager manager = new Manager();
 
 public static Manager getManager(){
-    return manager; // return that only Manager Object we have
+    return manager; // ارجاع الكائن الوحيد الذي لدينا
 }
 ```
 </div>
 
-كلمة `final` تعني ان اول قيمة سيتلقاها المتغير او الـ `object` ستكون ثابتة ولن يستطيع ان تغيرها شبيهه بالـ `const`
+كلمة `final` تعني ان اول قيمة سيتلقاها المتغير او `الكائن`  ستكون ثابتة ولن يستطيع ان تغيرها شبيهه بالـ `const`
 
 هنا ينتعي درسنا عن الـ `Singleton`  
 الـ `Singleton Pattern` قد يختلف في الشكل والاسلوب عن ما كتبناه لكن تظل قواعده ومفاهيمه ثابتة
