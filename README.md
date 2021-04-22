@@ -11,9 +11,10 @@
 
 # `فهرس الدروس`
 
-|الدرس|وصف قصير|
-|:--:|:-:|
-|[01](Lessons/01/README.md)|سنتكلم في هذا الدرس <br> عن ما هو الـ Desing Pattern و عن UML Class Diagram|
-|[02](Lessons/02/README.md)|سنتكلم في هذا الدرس <br> عن مقدمة في الـ Java و عن الـ Singleton Pattern|
+|الدرس|ما تم شرحه|
+|:--:|-:|
+|[01](Lessons/01/README.md)| - مقدمة عن الـ Desing Pattern <br> - شرح الـ UML Class Diagram|
+|[02](Lessons/02/README.md)| - مقدمة عن الـ Java <br> - شرح الـ Singleton Pattern|
+|[03](Lessons/03/README.md)|- شرح الـ  Factory Pattern جزء الـ Factory Method|
 
 </div>
