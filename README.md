@@ -13,8 +13,8 @@
 
 |الدرس|ما تم شرحه|
 |:--:|-:|
-|[01](Lessons/01/README.md)| - مقدمة عن الـ Desing Pattern <br> - شرح الـ UML Class Diagram|
-|[02](Lessons/02/README.md)| - مقدمة عن الـ Java <br> - شرح الـ Singleton Pattern|
-|[03](Lessons/03/README.md)|- شرح الـ  Factory Pattern جزء الـ Factory Method|
+|[UML Class Diagram](Lessons/%5B01%5DUMLClassDiagram/README.md)| - مقدمة عن الـ Desing Pattern <br> - شرح الـ UML Class Diagram|
+|[Singleton Pattern](Lessons/%5B02%5DSingletonPattern/README.md)| - مقدمة عن الـ Java <br> - شرح الـ Singleton Pattern|
+|[Factory Method Pattern](Lessons/%5B03%5DFactoryMethodPattern/README.md)|- شرح الـ  Factory Pattern جزء الـ Factory Method|
 
 </div>

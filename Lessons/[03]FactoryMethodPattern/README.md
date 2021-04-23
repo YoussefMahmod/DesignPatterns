@@ -3,10 +3,8 @@
 <div align = "center">
 
 # بسم اللة الرحمن الرحيم
-
 ## السلام عليكم ورحمة اللة وبركاته
-
-## --{ Design Patterns #3 }--
+## --{ Factory Method Pattern }--
 
 </div>
 
