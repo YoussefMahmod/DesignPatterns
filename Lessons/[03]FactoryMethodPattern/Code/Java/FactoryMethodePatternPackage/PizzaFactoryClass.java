@@ -10,11 +10,9 @@ IPizza وبما ان انواع البيتزا التى لدينا تنفذ ال
             return new MargheritaPizza(); // اذا كان رقم الطلب هو 1 نعيد كائن من بيتزا مارغريتا
         
         else if (order == 2)
-            
             return new CheesePizza(); // اذا كان رقم الطلب هو 2 نعيد كائن من بيتزا الجبن
         
         else if (order == 3)
-            
             return new TomatoPizza(); // اذا كان رقم الطلب هو 3 نعيد كائن من بيتزا الطماطم
         
         else
